@@ -1,0 +1,41 @@
+What is the minimum number of characters that need to be added to the password "aB1ef" to make it strong, according to the strongPassword function?
+
+Explanation: The strongPassword function checks for the following conditions:
+
+The password should have at least 6 characters.
+The password should have at most 20 characters.
+The password should contain at least one lowercase letter, one uppercase letter, and one digit.
+The password should not contain three repeating characters in a row.
+The function returns the minimum number of characters that need to be added to the password to make it strong.
+
+
+n=input()
+s=len(n)
+lower=False
+upper=False
+digit=False
+count=0
+if s>=6 and s<=20:
+    count=0
+else:
+    count=1
+for i in range(s):
+
+    if n[i].islower():
+        lower=True
+
+    if n[i].isupper():
+        upper=True
+
+    if n[i].isdigit():
+        digit=True
+if lower==False:
+    count+=1
+if upper==False:
+    count+=1
+if digit==False:
+    count+=1
+if count==0:
+    print("Strong Password")
+else:
+    print("Not Strong Password")
